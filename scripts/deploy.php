@@ -25,7 +25,7 @@ host('movie-contents.techvit.me')
 
 after('deploy:update_code', 'npm:install');
 task('npm:build', 'npm run build');
-task('pm2:start', 'cd {{deploy_path}} && pm2 startOrRestart ecosystem.config.js');
+task('pm2:start', 'cd {{deploy_path}}/current && pm2 startOrRestart ecosystem.config.js');
 
 task('deploy', [
     'deploy:info',
