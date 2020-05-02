@@ -2,6 +2,8 @@
 
 namespace Deployer;
 
+ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '/root/.composer/vendor/deployer/recipes');
+
 require 'recipe/common.php';
 require 'recipe/npm.php';
 
@@ -11,7 +13,7 @@ set('clear_paths', [
     // something...
 ]);
 
-host('example.com')
+host('150.95.185.82')
     // something...
     ->stage('production')
     ->set('branch', 'master')
@@ -33,6 +35,6 @@ task('deploy', [
     'pm2:start',
     'deploy:unlock',
     'cleanup',
-])->desc('Deploy example.com');
+])->desc('Deploy 150.95.185.82');
 
 after('deploy', 'success');
